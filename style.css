@@ -1189,6 +1189,13 @@ textarea:focus {
     }
 }
 
+@media all and (max-width: 380px) {
+    .header-name {
+        font-size: 3.5rem;
+        margin-right: 1%;
+    }
+}
+
 @media all and (max-height: 830px) {
     .skills-section {
         height: 275vh;
