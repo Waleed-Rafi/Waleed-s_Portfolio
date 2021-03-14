@@ -236,6 +236,10 @@ body {
     border-radius: 8px;
 }
 
+.about-information button:hover {
+    cursor: pointer;
+}
+
 .skills-section {
     background-color: #2c343f;
     height: 140vh;
@@ -726,6 +730,10 @@ textarea:focus {
     line-height: 30px;
     border: 1px solid #2c343f;
     border-radius: 8px;
+}
+
+.feedback-right button:hover {
+    cursor: pointer;
 }
 
 .footer {

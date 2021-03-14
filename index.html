@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,900,700,300|Montserrat:300,400,700" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
     <script src="https://kit.fontawesome.com/9ddcd1b5eb.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <title>Waleed's Portfolio</title>
 </head>
 
@@ -59,7 +60,9 @@
                     section. I always push myself for exploring new and interesting things. Here's my one of the favourite quote from William Shakespeare :
                     <q>We know what we are, but know not what we may be.</q> Felt that positive vibe? If not coding or designing you'll find me in the playground. We can work together, follow me or fill up the form and let's get started.
                 </p>
-                <button>Lets Work</button>
+                <a href="#feedback">
+                    <button href="#feedback">Lets Work</button>
+                </a>
             </div>
         </div>
 
@@ -75,9 +78,9 @@
             <div class="all-skills">
                 <div class="skills-left">
                     <p>HTML</p>
-                    <div class="html-bar">proficient</div>
+                    <div class="html-bar">90%</div>
                     <p>CSS</p>
-                    <div class="css-bar">proficient</div>
+                    <div class="css-bar">80%</div>
                     <p>JAVASCRIPT</p>
                     <div class="javascript-bar">85%</div>
                     <p>REACT</p>
@@ -195,8 +198,8 @@
             </div>
         </div>
 
-        <h1 class="heading-feedback">Feedback</h1>
-        <div class="feedback">
+        <h1 class="heading-feedback">Contact Us</h1>
+        <div id="feedback" class="feedback">
             <div class="feedback-left">
                 <img src="./svgs/feed.svg" alt="" />
             </div>
@@ -206,14 +209,27 @@
                         <label for="name">Name <span style="color: rgb(214, 4, 4)">*</span></label
               >
               <br />
-              <input id="feedback_name" type="text" name="name" required />
+              <input
+                id="feedback_name"
+                type="text"
+                name="name"
+                required
+                minlength="3"
+                maxlength="20"
+              />
             </div>
             <div>
               <label for="name"
                 >Email <span style="color: rgb(214, 4, 4)">*</span></label
               >
               <br />
-              <input id="feedback_email" type="email" name="email" required />
+              <input
+                id="feedback_email"
+                type="email"
+                name="email"
+                required
+                maxlength="50"
+              />
             </div>
             <div>
               <label for="message"
@@ -227,6 +243,8 @@
                 cols="42"
                 rows="8"
                 required
+                minlength="5"
+                maxlength="200"
               ></textarea>
             </div>
             <button type="submit" id="feedback_submit">Submit</button>
@@ -240,6 +258,9 @@
     </div>
 
     <script>
+      (function () {
+        emailjs.init("user_m36k86C7dLxxGAWmFZj8S");
+      })();
       const name = document.getElementById("feedback_name");
       const email = document.getElementById("feedback_email");
       const message = document.getElementById("feedback_message");
@@ -248,7 +269,22 @@
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        console.log("clicked");
+        emailjs
+          .send("service_9jvu0k9", "template_mb3eose", {
+            to_name: "Waleed Rafi",
+            from_name: name.value,
+            from_email: email.value,
+            message: message.value,
+          })
+          .then((res) => {
+            name.value = "";
+            email.value = "";
+            message.value = "";
+          })
+          .catch((e) => {
+            console.log("Error in sending message");
+            alert("Error in sending message try again later");
+          });
       });
 
       console.log("Running...");
