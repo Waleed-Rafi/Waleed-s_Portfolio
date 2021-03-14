@@ -1218,6 +1218,11 @@ textarea:focus {
     .skills-heading {
         margin-top: -2rem;
     }
+    .header-icons .fab,
+    .far {
+        margin-left: 0.9rem;
+        /* padding: 2rem; */
+    }
 }
 
 @media all and (max-height: 750px) {
