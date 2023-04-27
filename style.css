@@ -293,7 +293,7 @@ body {
 }
 
 .javascript-bar {
-  width: 85%;
+  width: 90%;
   padding: 10px;
   background: #f0db4f;
   color: #323330;
@@ -358,7 +358,7 @@ body {
   animation: mongodbBar 2s ease-in-out;
 }
 
-.firebase-bar {
+.aws-bar {
   width: 85%;
   padding: 10px;
   background: linear-gradient(to right, #ffa611, #f6820d);
@@ -369,8 +369,8 @@ body {
   animation: firebaseBar 2s ease-in-out;
 }
 
-.react-native-bar {
-  width: 75%;
+.firebase-bar {
+  width: 85%;
   padding: 10px;
   background: #61dbfb;
   color: #323330;
